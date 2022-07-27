@@ -1,13 +1,28 @@
+<%
+=begin%>
+ <%= render 'shared/errors', object: @question %> 
+<%
+=end%>
 <%= form_with model: @question do |f| %>
-    <div>
-      <%= f.label :"Заголовок" %>
-      <%= f.text_field :title, required: true, minlength: 2, placeholder: "Заголовок" %>
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label 'Заголовок' %>
     </div>
-  
-    <div>
-      <%= f.label :"Вопрос" %>
-      <%= f.text_area :body, required: true, minlength: 2, placeholder: "Вопрос" %>
+
+    <div class="col-sm-10">
+      <%= f.text_field :title, placeholder: 'Заголовок', class: 'form-control' %>
     </div>
-  
-    <%= f.submit "Задать вопрос" %>
-  <% end %>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-2 col-form-label">
+      <%= f.label 'Вопрос' %>
+    </div>
+
+    <div class="col-sm-10">
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+  </div>
+
+  <%= f.submit "Задать вопрос!", class: 'btn btn-primary' %>
+<% end %>
