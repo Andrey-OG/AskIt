@@ -1,4 +1,4 @@
-<h1>Questions</h1>
+<h1>Вопросы</h1>
 
 <% @questions.inspect %>
 
@@ -11,5 +11,9 @@
 
   <p>
     <%= question.body %>
+    <br>
+    <%= link_to "Показать", question_path(question) %> |
+    <%= link_to "Редактировать", edit_question_path(question) %> |
+    <%= link_to "Удалить", question_path(question), data: {turbo_method: :delete, turbo_confirm: 'Вы уверены, что хотите удалить вопрос?'} %>
   </p>
 <% end %>

@@ -1,0 +1,13 @@
+<%= form_with model: @question do |f| %>
+    <div>
+      <%= f.label :"Заголовок" %>
+      <%= f.text_field :title, required: true, minlength: 2, placeholder: "Заголовок" %>
+    </div>
+  
+    <div>
+      <%= f.label :"Вопрос" %>
+      <%= f.text_area :body, required: true, minlength: 2, placeholder: "Вопрос" %>
+    </div>
+  
+    <%= f.submit "Задать вопрос" %>
+  <% end %>
