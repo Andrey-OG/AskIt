@@ -1,3 +1,6 @@
+<% currently_at 'Вопрос' %>
+<% provide :page_title, 'Вопрос' %>
+
 <h1 class="mb-4"><%= @question.title %></h1>
 
 <time datetime="<%= @question.formatted_created_at %>">
@@ -12,3 +15,27 @@
 <%= link_to 'Редактировать', edit_question_path(@question), class: 'btn btn-secondary' %>
 <%= link_to 'Удалить', question_path(@question), class: 'btn btn-danger',
   data: {method: :delete, confirm: 'Вы уверены, что хотите удалить вопрос?'} %>
+
+<hr class="my-3">
+
+<h2>Напишите свой ответ</h2>
+
+<%= render 'answers/form' %>
+
+<h2 class="mt-5">Ответы</h2>
+
+ <% @answers.each do |answer| %>
+  <article class="mb-3">
+    <time datetime="<%= answer.formatted_created_at %>">
+      <%= answer.formatted_created_at %>
+    </time>
+
+    <p>
+      <%= answer.body %>
+    </p>
+
+    <%= link_to 'Редактировать', edit_question_answer_path(@question), class: 'btn btn-secondary' %>
+    <%= link_to 'Удалить', question_answer_path(@question, answer), class: 'btn btn-danger btn-xs',
+      data: {method: :delete, confirm: "Are you sure?"} %>
+  </article>
+<% end %> 
