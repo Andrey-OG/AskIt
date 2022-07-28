@@ -1,6 +1,10 @@
+<% provide :page_title, 'Вопросы' %>
+<% currently_at 'Вопросы'%>
+
 <h1 class="mb-4">Вопросы</h1>
 
 <%= link_to 'Новый вопрос', new_question_path, class: 'btn btn-primary btn-lg' %>
+
 <% @questions.each do |question| %>
   <article class="card mt-3">
     <div class="card-body">
